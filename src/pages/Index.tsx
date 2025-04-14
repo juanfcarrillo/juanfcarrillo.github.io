@@ -94,9 +94,9 @@ export default function Index() {
     <div className="min-h-screen bg-background text-foreground p-4 md:p-8">
       <div className="max-w-7xl mx-auto grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
         {/* Hero Section - Spans 2 columns */}
-        <GlassCard className="md:col-span-2 p-8 flex gap-6">
-          <div className="w-32 h-32 rounded-full bg-black/40 border border-white/10">
-            {/* Add your photo here */}
+        <GlassCard className="md:col-span-2 p-8 flex gap-6 flex-col md:flex-row">
+          <div className="w-20 md:w-96 h-fit rounded-full bg-black/40 border border-white/10 overflow-hidden">
+            <img src='/assets/me.png' alt="Juan Carrillo"/>
           </div>
           <div className="flex flex-col justify-center">
             <h1 className="text-3xl font-bold mb-2">Juan Carrillo</h1>
