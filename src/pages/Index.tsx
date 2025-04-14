@@ -12,7 +12,7 @@ import {
 export default function Index() {
   return (
     <div className="min-h-screen bg-background text-foreground p-4 md:p-8">
-      <div className="max-w-7xl mx-auto grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 auto-rows-[250px]">
+      <div className="max-w-7xl mx-auto grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
         {/* Hero Section - Spans 2 columns */}
         <GlassCard className="md:col-span-2 p-8 flex gap-6">
           <div className="w-32 h-32 rounded-full bg-black/40 border border-white/10">
@@ -26,7 +26,7 @@ export default function Index() {
             </p>
           </div>
         </GlassCard>
-
+    
         {/* Skills Section */}
         <GlassCard className="p-6 overflow-hidden">
           <h2 className="text-xl font-semibold mb-4">Skills</h2>
@@ -43,14 +43,14 @@ export default function Index() {
         </GlassCard>
 
         {/* Projects Section */}
-        <GlassCard className="md:col-span-2 p-6">
+        <GlassCard className="md:col-span-2 p-6 h-fit">
           <h2 className="text-xl font-semibold mb-4">Featured Projects</h2>
           <Carousel
             opts={{
               align: "start",
               loop: true,
             }}
-            className="w-full"
+            className="w-full relative"
           >
             <CarouselContent className="-ml-2 md:-ml-4">
               <CarouselItem className="pl-2 md:pl-4 md:basis-1/2">
@@ -71,9 +71,18 @@ export default function Index() {
                   liveUrl="#"
                 />
               </CarouselItem>
+              <CarouselItem className="pl-2 md:pl-4 md:basis-1/2">
+                <ProjectCard
+                  title="Another Project"
+                  description="Brief project description"
+                  image="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=800&q=80"
+                  githubUrl="#"
+                  liveUrl="#"
+                />
+              </CarouselItem>
             </CarouselContent>
-            <CarouselPrevious className="hidden md:flex" />
-            <CarouselNext className="hidden md:flex" />
+            <CarouselPrevious className="hidden md:flex absolute -left-5" />
+            <CarouselNext className="hidden md:flex absolute -right-5" />
           </Carousel>
         </GlassCard>
 
