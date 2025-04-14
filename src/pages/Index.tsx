@@ -102,7 +102,7 @@ export default function Index() {
             <h1 className="text-3xl font-bold mb-2">Juan Carrillo</h1>
             <p className="text-xl text-white/80 mb-4">Software Engineer/ Startup entusiast</p>
             <p className="text-gray-400">
-              Your summary goes here. Write a brief introduction about yourself.
+            Software Engineering student love develop products that solve real-world problems. I focus on translating client needs into effective software, combining business analysis with scalable architectures and the right technology.
             </p>
           </div>
         </GlassCard>
