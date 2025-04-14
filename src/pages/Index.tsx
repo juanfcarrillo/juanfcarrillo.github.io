@@ -8,6 +8,86 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+import { ActivityCard } from "@/components/activity-card";
+
+const skills = [
+  "React",
+  "TypeScript",
+  "Next.js",
+  "Tailwind CSS",
+  "N8N",
+  "Python",
+  "Generative AI",
+  "LangChain",
+  "Supabase",
+  "Firebase",
+  "Clean Architecture",
+  "Docker",
+  "React Native",
+  "Expo",
+  "Stripe"
+];
+
+const projects = [
+  {
+    title: "ClipsMaker",
+    description: "Automated video editing tool for creating short clips from long videos",
+    image: "/assets/clips_maker.png",
+    liveUrl: "https://clips-maker-frontend.vercel.app/",
+    technologies: ['Active Speaker Detection', 'OpenCV', 'Stable Whisper', 'Next.js', 'Supabase', "Gemini", "LangChain", "Tailwind CSS"],
+    status: 'online'
+  },
+  {
+    title: "WORB",
+    description: "B2B platform for requesting and managing providers and clients. (Launching soon)",
+    image: "/assets/worb.jpeg",
+    technologies: ['Supabase', 'Postgres', 'N8N', "Mailchimp", "Cloudfare Workers", "Hono"],
+    status: 'online'
+  },
+  {
+    title: "TutorIA",
+    description: "AI-powered chatbot platform for tutoring about any topic (Made in 3 days)",
+    video: '/assets/tutoria.mp4',
+    technologies: ['Supabase', 'N8N', 'React Native', 'Expo', 'NativeWind', 'MailChimp'],
+    status: 'private'
+  },
+  {
+    title: "DevNote",
+    description: "A local first note-taking app for developers using ai for content summarization, search, and organization",
+    image: "/assets/devnote.png",
+    technologies: ['Supabase', 'Next.js', 'Cloudflare', 'Tailwind CSS', 'Langchain', 'Chroma DB'],
+    status: 'private'
+  },
+  {
+    title: "EzSupport",
+    description: "Generates chatbot support from a set of documents using AI",
+    image: "/assets/ezsupport.png",
+    technologies: ['Firebase', 'Langchain', 'Chroma DB', 'Next.js', 'Tailwind CSS', 'Vite', 'Stripe'],
+    status: 'offline'
+  },
+  {
+    title: "ChapGEN",
+    description: "Generates a chapters for a video using AI (Working on it)",
+    image: "/assets/chapgen.png",
+    technologies: ['N8N', 'Next.js', 'Tailwind CSS', 'Supabase', 'LangChain'],
+    status: 'online'
+  }
+];
+
+const activities = [
+  {
+    title: "NASA space apps challenge",
+    description: "Tech lead the development of the apps for the NASA space apps challenge",
+  },
+  {
+    title: "START Hack",
+    description: "Campus Ambassador for the START Hack, lead over 250 people the hackathon",
+  },
+  {
+    title: "Interact2Hack",
+    description: "Winner of the Interact2Hack hackathon, developed a AR app for an artistic project",
+  },
+];
 
 export default function Index() {
   return (
@@ -19,8 +99,8 @@ export default function Index() {
             {/* Add your photo here */}
           </div>
           <div className="flex flex-col justify-center">
-            <h1 className="text-3xl font-bold mb-2">Your Name</h1>
-            <p className="text-xl text-white/80 mb-4">Your Title</p>
+            <h1 className="text-3xl font-bold mb-2">Juan Carrillo</h1>
+            <p className="text-xl text-white/80 mb-4">Software Engineer/ Startup entusiast</p>
             <p className="text-gray-400">
               Your summary goes here. Write a brief introduction about yourself.
             </p>
@@ -31,7 +111,7 @@ export default function Index() {
         <GlassCard className="p-6 overflow-hidden">
           <h2 className="text-xl font-semibold mb-4">Skills</h2>
           <div className="flex flex-wrap gap-2">
-            {["React", "TypeScript", "Node.js"].map((skill) => (
+            {skills.map((skill) => (
               <span
                 key={skill}
                 className="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-sm"
@@ -43,8 +123,9 @@ export default function Index() {
         </GlassCard>
 
         {/* Projects Section */}
-        <GlassCard className="md:col-span-2 p-6 h-fit">
+        <GlassCard className="md:col-span-2 p-6 h-full">
           <h2 className="text-xl font-semibold mb-4">Featured Projects</h2>
+          <div className="h-full flex flex-col justify-center">
           <Carousel
             opts={{
               align: "start",
@@ -53,61 +134,52 @@ export default function Index() {
             className="w-full relative"
           >
             <CarouselContent className="-ml-2 md:-ml-4">
-              <CarouselItem className="pl-2 md:pl-4 md:basis-1/2">
-                <ProjectCard
-                  title="Project Name"
-                  description="Brief project description"
-                  image="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=crop&w=800&q=80"
-                  githubUrl="#"
-                  liveUrl="#"
-                />
-              </CarouselItem>
-              <CarouselItem className="pl-2 md:pl-4 md:basis-1/2">
-                <ProjectCard
-                  title="Another Project"
-                  description="Brief project description"
-                  image="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=800&q=80"
-                  githubUrl="#"
-                  liveUrl="#"
-                />
-              </CarouselItem>
-              <CarouselItem className="pl-2 md:pl-4 md:basis-1/2">
-                <ProjectCard
-                  title="Another Project"
-                  description="Brief project description"
-                  image="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=800&q=80"
-                  githubUrl="#"
-                  liveUrl="#"
-                />
-              </CarouselItem>
+              {projects.map((project, index) => (
+                <CarouselItem key={index} className="pl-2 md:pl-4 md:basis-1/2">
+                  <ProjectCard
+                    title={project.title}
+                    description={project.description}
+                    image={project.image}
+                    githubUrl={project.githubUrl}
+                    liveUrl={project.liveUrl}
+                    status={project.status}
+                    technologies={project.technologies}
+                    video={project.video}
+                  />
+                </CarouselItem>
+              ))}
             </CarouselContent>
-            <CarouselPrevious className="hidden md:flex absolute -left-5" />
-            <CarouselNext className="hidden md:flex absolute -right-5" />
+            <CarouselPrevious variant="ghost" className="hidden md:flex absolute -left-7" />
+            <CarouselNext variant="ghost" className="hidden md:flex absolute -right-7" />
           </Carousel>
+          </div>
         </GlassCard>
 
         {/* Leadership/Activities and Get in Touch - Now in the same column */}
         <div className="md:col-span-1 grid gap-6">
           <GlassCard className="p-6">
-            <h2 className="text-xl font-semibold mb-4">Leadership & Activities</h2>
+            <h2 className="text-xl font-semibold mb-4">Volunteering</h2>
             <div className="space-y-3">
-              <div className="p-3 rounded-lg bg-black/20 border border-white/5">
-                <h3 className="font-medium">Activity Title</h3>
-                <p className="text-sm text-gray-400">Brief description</p>
-              </div>
+              {activities.map((activity, index) => (
+                <ActivityCard 
+                  key={index}
+                  title={activity.title}
+                  description={activity.description}
+                />
+              ))}
             </div>
           </GlassCard>
 
           <GlassCard className="p-6">
             <h2 className="text-xl font-semibold mb-4">Get in Touch</h2>
             <div className="flex gap-4">
-              <a href="#" className="p-2 rounded-lg bg-white/5 hover:bg-white/10 transition-colors">
+              <a href="mailto:juanfrix123@gmail.com" className="p-2 rounded-lg bg-white/5 hover:bg-white/10 transition-colors">
                 <Mail size={24} />
               </a>
-              <a href="#" className="p-2 rounded-lg bg-white/5 hover:bg-white/10 transition-colors">
+              <a href="https://github.com/juanfcarrillo" className="p-2 rounded-lg bg-white/5 hover:bg-white/10 transition-colors">
                 <Github size={24} />
               </a>
-              <a href="#" className="p-2 rounded-lg bg-white/5 hover:bg-white/10 transition-colors">
+              <a href="https://www.linkedin.com/in/juan-francisco-carrillo-397487271/" className="p-2 rounded-lg bg-white/5 hover:bg-white/10 transition-colors">
                 <Linkedin size={24} />
               </a>
             </div>
