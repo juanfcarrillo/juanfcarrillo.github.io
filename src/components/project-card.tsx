@@ -1,7 +1,6 @@
 
 import { ExternalLink, Github } from "lucide-react";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
-import { GlassCard } from "./glass-card";
 
 interface ProjectCardProps {
   title: string;
@@ -27,7 +26,7 @@ export function ProjectCard({
           {video ? (
             <video
               src={video}
-              className="object-cover w-full h-full"
+              className="w-full h-full object-cover"
               controls
               muted
               loop
@@ -36,7 +35,13 @@ export function ProjectCard({
             <img
               src={image}
               alt={title}
-              className="object-cover w-full h-full transition-transform duration-300 hover:scale-105"
+              className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+              // Add loading and error handling
+              loading="lazy"
+              onError={(e) => {
+                const target = e.target as HTMLImageElement;
+                target.src = '/placeholder.svg'; // Fallback image
+              }}
             />
           )}
         </AspectRatio>
