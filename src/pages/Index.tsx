@@ -1,6 +1,7 @@
 
 import { GlassCard } from "@/components/glass-card";
-import { Github, Mail, Linkedin, ExternalLink } from "lucide-react";
+import { Github, Mail, Linkedin } from "lucide-react";
+import { ProjectCard } from "@/components/project-card";
 
 export default function Index() {
   return (
@@ -39,16 +40,20 @@ export default function Index() {
         <GlassCard className="md:col-span-2 p-6">
           <h2 className="text-xl font-semibold mb-4">Featured Projects</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {[1, 2].map((project) => (
-              <div key={project} className="p-4 rounded-lg bg-black/20 border border-white/5">
-                <h3 className="font-medium mb-2">Project Name</h3>
-                <p className="text-sm text-gray-400 mb-3">Brief project description</p>
-                <div className="flex gap-2">
-                  <ExternalLink size={18} className="opacity-60 hover:opacity-100 cursor-pointer" />
-                  <Github size={18} className="opacity-60 hover:opacity-100 cursor-pointer" />
-                </div>
-              </div>
-            ))}
+            <ProjectCard
+              title="Project Name"
+              description="Brief project description"
+              image="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=crop&w=800&q=80"
+              githubUrl="#"
+              liveUrl="#"
+            />
+            <ProjectCard
+              title="Another Project"
+              description="Brief project description"
+              image="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=800&q=80"
+              githubUrl="#"
+              liveUrl="#"
+            />
           </div>
         </GlassCard>
 
