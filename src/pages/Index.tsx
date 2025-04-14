@@ -1,7 +1,13 @@
-
 import { GlassCard } from "@/components/glass-card";
 import { Github, Mail, Linkedin } from "lucide-react";
 import { ProjectCard } from "@/components/project-card";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 
 export default function Index() {
   return (
@@ -36,25 +42,39 @@ export default function Index() {
           </div>
         </GlassCard>
 
-        {/* Projects Grid */}
+        {/* Projects Section - Now with Carousel */}
         <GlassCard className="md:col-span-2 p-6">
           <h2 className="text-xl font-semibold mb-4">Featured Projects</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <ProjectCard
-              title="Project Name"
-              description="Brief project description"
-              image="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=crop&w=800&q=80"
-              githubUrl="#"
-              liveUrl="#"
-            />
-            <ProjectCard
-              title="Another Project"
-              description="Brief project description"
-              image="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=800&q=80"
-              githubUrl="#"
-              liveUrl="#"
-            />
-          </div>
+          <Carousel
+            opts={{
+              align: "start",
+              loop: true,
+            }}
+            className="w-full"
+          >
+            <CarouselContent className="-ml-2 md:-ml-4">
+              <CarouselItem className="pl-2 md:pl-4 md:basis-1/2">
+                <ProjectCard
+                  title="Project Name"
+                  description="Brief project description"
+                  image="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=crop&w=800&q=80"
+                  githubUrl="#"
+                  liveUrl="#"
+                />
+              </CarouselItem>
+              <CarouselItem className="pl-2 md:pl-4 md:basis-1/2">
+                <ProjectCard
+                  title="Another Project"
+                  description="Brief project description"
+                  image="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=800&q=80"
+                  githubUrl="#"
+                  liveUrl="#"
+                />
+              </CarouselItem>
+            </CarouselContent>
+            <CarouselPrevious className="hidden md:flex" />
+            <CarouselNext className="hidden md:flex" />
+          </Carousel>
         </GlassCard>
 
         {/* Leadership/Activities */}

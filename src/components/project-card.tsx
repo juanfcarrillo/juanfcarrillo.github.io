@@ -20,7 +20,7 @@ export function ProjectCard({
   liveUrl,
 }: ProjectCardProps) {
   return (
-    <div className="p-4 rounded-lg bg-black/20 border border-white/5">
+    <div className="h-full p-4 rounded-lg bg-black/20 border border-white/5">
       {(image || video) && (
         <AspectRatio ratio={16 / 9} className="mb-4 overflow-hidden rounded-md">
           {video ? (
@@ -36,18 +36,17 @@ export function ProjectCard({
               src={image}
               alt={title}
               className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
-              // Add loading and error handling
               loading="lazy"
               onError={(e) => {
                 const target = e.target as HTMLImageElement;
-                target.src = '/placeholder.svg'; // Fallback image
+                target.src = '/placeholder.svg';
               }}
             />
           )}
         </AspectRatio>
       )}
-      <h3 className="font-medium mb-2">{title}</h3>
-      <p className="text-sm text-gray-400 mb-3">{description}</p>
+      <h3 className="font-medium mb-2 line-clamp-1">{title}</h3>
+      <p className="text-sm text-gray-400 mb-3 line-clamp-2">{description}</p>
       <div className="flex gap-2">
         {liveUrl && (
           <a
